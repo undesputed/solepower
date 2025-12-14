@@ -1,0 +1,7 @@
+RewriteEngine On
+
+# Send all non-existing URLs to homepage (single 301)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !^/$
+RewriteRule ^.+$ https://www.solepowertech.com/ [L,R=301]

@@ -1,0 +1,10 @@
+# robots.txt
+User-agent: *
+Allow: /
+
+# Common staging/preview blocks (adjust to your hosting setup)
+Disallow: /staging/
+Disallow: /preview/
+Disallow: /tmp/
+
+Sitemap: https://www.solepowertech.com/sitemap.xml

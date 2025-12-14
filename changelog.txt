@@ -1,0 +1,73 @@
+Conversion changelog — semantic + accessibility + SEO
+Date: 2025-12-12
+Project: /Users/carrieyu/Desktop/projects/solepowertech
+
+Pages processed:
+- /index.html
+- /about.html
+- /contact.html
+
+Global steps performed (all pages)
+- Added a top-of-file developer notes + QA report comment block (includes canonical placeholder and missing assets/assumptions).
+- Ensured HTML5 shell + language declaration (set to lang="en").
+- Added/standardized SEO metadata: title, meta description, robots, canonical.
+- Added/updated Open Graph + Twitter card metadata with placeholder og-default image path.
+- Added a skip-to-content link and focus-visible outline styling.
+- Improved primary navigation accessibility (aria-label on <nav>).
+- Hardened footer toggle scripts (null checks, keyboard support for Enter/Space).
+- Added rel="noopener noreferrer" to target="_blank" outbound footer links.
+
+/index.html
+- Converted main wrapper to semantic <main id="content"> landmark.
+- Added accessible table region labeling for the main comparison table wrapper.
+- Updated OG type to "article".
+
+/about.html
+- Converted main wrapper to semantic <main id="content"> landmark and ensured footer sits outside main.
+- Added JSON-LD WebPage schema for the About page (kept existing JSON-LD that appears homepage-oriented; flagged for manual review).
+
+/contact.html
+- Converted main wrapper to semantic <main id="content"> landmark and ensured footer sits outside main.
+- Fixed form accessibility: added unique input ids, associated <label for>, added aria-describedby and an aria-live status region placeholder.
+- Added JSON-LD WebPage schema for the Contact page (kept existing JSON-LD that appears homepage-oriented; flagged for manual review).
+
+Notes
+- Canonical/OG/Twitter URLs are placeholders (https://example.com/...). Replace with the production base URL during deployment.
+- Add /og-default.jpg (recommended 1200×630) to match the placeholder image URL used in metadata.
+
+
+## Update: SEO + responsiveness polish (www canonical)
+Date: 2025-12-12
+
+Files updated:
+- /index.html
+- /about.html
+- /contact.html
+- /robots.txt
+- /sitemap.xml
+- /.htaccess
+
+SEO / crawl:
+- Switched canonical + Open Graph + Twitter meta URLs to use https://www.solepowertech.com/... across all pages.
+- Updated JSON-LD structured data URLs/ids to match the www domain for consistency.
+- Updated robots sitemap directive to https://www.solepowertech.com/sitemap.xml.
+- Updated sitemap.xml <loc> entries to https://www.solepowertech.com/... and removed double-slash URLs.
+
+Structured data (JSON-LD):
+- Home (index): kept Article/FAQ/Organization/Breadcrumb, but normalized ids/urls and fixed image/logo fields to real site assets.
+- About: replaced homepage-oriented JSON-LD with WebSite + Organization + BreadcrumbList + AboutPage.
+- Contact: replaced homepage-oriented JSON-LD with WebSite + Organization (with ContactPoint) + BreadcrumbList + ContactPage.
+
+Mobile responsiveness / layout:
+- Centered page content reliably by centering the <main> element (margin-left/right: auto).
+- Removed percentage body side-margins that caused drift at some breakpoints; set body margin/padding to 0.
+- Added global box-sizing: border-box to reduce overflow/layout issues on responsive widths.
+- Improved table behavior on small screens by enabling horizontal scrolling on the casino table wrapper (overflow-x: auto).
+- Ensured mobile container width stays consistent at <=480px (width: 100% !important).
+
+Accessibility / semantic HTML:
+- Converted footer toggle from a <div> to a real <button> and added aria-controls/aria-expanded; updated JS accordingly.
+- Improved logo alt text (more descriptive).
+
+Notes:
+- When viewing locally via file://, canonical/meta URLs will still point to production (this is expected for SEO).
